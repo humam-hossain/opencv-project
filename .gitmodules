@@ -1,0 +1,3 @@
+[submodule "opencv-course"]
+	path = opencv-course
+	url = https://github.com/jasmcaus/opencv-course.git
