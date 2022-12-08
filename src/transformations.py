@@ -19,13 +19,13 @@ def rotate(img, angle, rotPoint=None):
     return cv.warpAffine(img, rotMat, dimensions)
 
 img = cv.imread("Photos/park.jpg")
-# cv.imshow("Park", img)
+cv.imshow("Park", img)
 
-# translated = translate(img, -100, -100)
-# cv.imshow("translated", translated)
+translated = translate(img, -100, -100)
+cv.imshow("translated", translated)
 
-# rotated = rotate(img, 45)
-# cv.imshow("rotated", rotated)
+rotated = rotate(img, 45)
+cv.imshow("rotated", rotated)
 
 flip = cv.flip(img, 0) # 0, 1, -1
 cv.imshow("flip", flip)

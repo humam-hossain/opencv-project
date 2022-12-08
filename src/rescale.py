@@ -15,11 +15,11 @@ def changeRes(width, height):
     capture.set(4, height)
     
 # reading image
-# img = cv.imread("Photos/cat.jpg")
-# img = rescaleFrame(img)
-# cv.imshow("Cat", img)
+img = cv.imread("Photos/cat.jpg")
+img = rescaleFrame(img)
+cv.imshow("Cat", img)
 
-# cv.waitKey(0)
+cv.waitKey(0)
 
 # reading videos
 capture = cv.VideoCapture("Videos/dog.mp4")
