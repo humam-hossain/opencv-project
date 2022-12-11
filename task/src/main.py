@@ -9,23 +9,22 @@ def rescaleFrame(frame, scale=0.75):
 
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 
-original = cv.imread("../photos/tshirt_original.jpg")
-sample1 = cv.imread("../photos/tshirt_sample_1.jpg")
-sample2 = cv.imread("../photos/tshirt_sample_2.jpg")
+original = cv.imread("../photos/original.jpg")
+sample = cv.imread("../photos/sample.jpg")
 
-original = cv.medianBlur(original, 13)
-sample1 = cv.medianBlur(sample1, 13)
-sample2 = cv.medianBlur(sample2, 13)
+print(original.shape)
+print(sample.shape)
 
-sample1_diff = cv.subtract(sample1, original)
-sample2_diff = cv.subtract(sample2, original)
+diff = 255 - cv.absdiff(sample, original)
 
-original_show = rescaleFrame(original, 0.1)
-sample1_show = rescaleFrame(sample1_diff, 0.1)
-sample2_show = rescaleFrame(sample2_diff, 0.1)
+scale = 0.2
 
-cv.imshow("original tshirt", original_show)
-cv.imshow("sample1 tshirt", sample1_show)
-cv.imshow("sample2 tshirt", sample2_show)
+original_resized = rescaleFrame(original, scale)
+sample_resized = rescaleFrame(sample, scale)
+diff_resized = rescaleFrame(diff, scale)
+
+cv.imshow("original", original_resized)
+cv.imshow("sample", sample_resized)
+cv.imshow("diff", diff_resized)
 
 cv.waitKey(0)
